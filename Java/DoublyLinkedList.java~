@@ -1,0 +1,64 @@
+
+import java.util.NoSuchElementException;
+public class DoublyLinkedList<Item> {
+  
+    private Node head;
+    private Node tail;
+    private int size;
+    public DoublyLinkedList(){
+      size = 0;
+    }
+    private class Node {
+      Item item;
+      Node next;
+      Node prev;
+      public Node(Item item, Node next, Node prev) {
+        this.item = item;
+        this.next = next;
+        this.prev = prev;
+      }
+    }
+    public int size() { return size; }
+    public boolean isEmpty() { return size == 0; }
+    public void addFirst(Item item) {
+      Node aNode = new Node(item, head, null);
+      if(head != null ) {head.prev = aNode;}
+      head = aNode;
+      if(tail == null) { tail = aNode;}
+      size++;
+      System.out.println("adding: "+item);
+    }
+    public void addLast(Item item) {
+      Node aNode = new Node(item, null, tail);
+      if(tail != null) {tail.next = aNode;}
+      tail = aNode;
+      if(head == null) { head = aNode;}
+      size++;
+      System.out.println("adding: "+item);
+    }
+    public void iterateForward(){
+      System.out.println("iterating forward..");
+      Node aNode = head;
+      while(aNode != null){
+        System.out.println(aNode.item);
+        aNode = aNode.next;
+      }
+    }
+    public void iterateBackward(){
+      System.out.println("iterating backword..");
+      Node aNode = tail;
+      while(aNode != null){
+        System.out.println(aNode.item);
+        aNode = aNode.prev;
+      }
+    }
+    public Item removeFirst(){
+      if (size == 0) throw new NoSuchElementException();
+      Node aNode = head;
+      head = head.next;
+      head.prev = null;
+      size--;
+      System.out.println("delete: " + aNode.item);
+      return aNode.item;
+    }
+}

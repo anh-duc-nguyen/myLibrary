@@ -1,0 +1,6 @@
+public class Assignment2_001000906{
+  public boolean isReverseComplement(String firstSequence,String secondSequence){
+    if (firstSequence == secondSequence)
+      return true;
+    else
+      return false;

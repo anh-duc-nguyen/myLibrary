@@ -1,0 +1,21 @@
+import java.util.*;
+import java.io.*;
+public class Assignment6And7_001000906{
+  public static void main(String[] args){
+    Scanner in = new Scanner(System.in);
+    System.out.print("Please enter Patch to .txt file: ");
+    String filePath = in.nextLine();
+    try (InoutStream a = Files.newInputStream(filePath);
+         BufferedReader reader = new BufferedREader(new InputStreamRead(in))){
+           String line = null;
+           while ((line = reader.readLine()) != null){
+             System.out.println(line);
+           }
+         }
+         catch (IOException x){
+           System.err.println(x);
+         }
+  }
+}
+
+  

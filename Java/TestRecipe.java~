@@ -1,0 +1,17 @@
+import java.util.ArrayList;
+public class TestRecipe{
+  private ArrayList<Ingredient> recipeList;
+  public Recipe(){
+    ArrayList<Ingredient> recipeList = new ArrayList<Ingredient>();
+  }
+  public void add (Ingredient ingredientName){
+    recipeList.add (ingredientName);
+  }
+  public void has(String ingredientName){
+    for (int i = 0; i < recipeList.size(); i++){
+      if (ingredientName.equals(recipeList.get(i).name())){
+        System.out.println(ingredientName);
+      }
+    }
+  }
+}

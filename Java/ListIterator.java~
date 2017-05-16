@@ -1,0 +1,7 @@
+public interface ListIterator{
+  Object next();
+  boolean hassNext();
+  void add (Boject element);
+  void remove();
+  void set(Object element);
+}

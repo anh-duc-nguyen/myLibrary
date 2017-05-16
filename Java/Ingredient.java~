@@ -1,0 +1,23 @@
+public class Ingredient{
+  private String n;
+  private double a;
+  private String u;
+  public Ingredient(String name){
+    n = name;
+    a = 0;
+    u = "";
+  }
+  public void add(double amount, String unit){
+    a = amount;
+    u = unit;
+  }
+  public String name(){
+    return n;
+  }
+  public double amount(){
+    return a;
+  }
+  public String unit(){
+    return u;
+  }
+}
