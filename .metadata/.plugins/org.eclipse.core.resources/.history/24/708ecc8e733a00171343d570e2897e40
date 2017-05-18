@@ -113,7 +113,7 @@ public class DoublyLinkedList{
   public void printData(){
     System.out.println("printing data");
     Node tmp = head;
-    while(tmp.next != tail){
+    while(tmp.next != head){
       tmp = tmp.next;
       System.out.println(tmp.data);
     }
