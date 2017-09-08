@@ -1,0 +1,51 @@
+import numpy as np
+import math
+
+a1 = np.array([6,24,1,13,16,10,20,17,15])
+a2 = np.array([2,0,19])
+a1 = a1.reshape(3,3)
+a3 = a1.dot(a2)
+a3 = a3 % 26
+a4 = np.array([])
+print a3
+print np.append(a4,[12])
+p = 'lootcrates'
+print p.index('a')
+
+def cipher(plainText, m):
+    ALP ='abcdefghijklmnopqrstuvwxyz'
+    cipherText =''
+    plainM = np.array([],int)
+    
+    k = int(math.sqrt(m.size))
+
+    for i in range(len(plainText)%k):
+        plainText += 'x'
+
+    for i in range(0,len(plainText),k):
+        curBlock =''
+        for j in range(k):
+            curBlock += plainText[j]
+        curBlock = toNum(curBlock)
+
+        for char in plainText:
+            i = ALP.index(char)
+            plainM = np.append(plainM,[i])
+
+        
+        curBlock = m.dot(plainM)
+        curBlock = curBlock % 26
+        for i in curBlock:
+            cipherText += ALP[i]
+    return cipherText
+
+def toNum(aBlock):
+    ALP = 'abcdefghijklmnopqrstuvwxyz'
+    returnArray = []
+    for char in aBlock:
+        returnArray.append(ALP.index(char))
+    returnArray = np.array(returnArray)
+    return returnArray
+
+a = cipher('loobee',a1)
+print a
